@@ -1,0 +1,166 @@
+version: 2
+
+sources:
+    - name: raw
+      tables:
+        - name: tableau_cloud__groups
+          description: "Raw groups data from Tableau Cloud Admin Insights"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: tableau_cloud__job_performance
+          description: "Raw job_performance data from Tableau Cloud Admin Insights"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: tableau_cloud__site_content
+          description: "Raw site_content data from Tableau Cloud Admin Insights"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: tableau_cloud__site_info
+          description: "Raw site info data from Tableau Cloud REST API"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: tableau_cloud__ts_events
+          description: "Raw ts_events data from Tableau Cloud Admin Insights"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: tableau_cloud__ts_users
+          description: "Raw ts_users data from Tableau Cloud Admin Insights"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: tableau_cloud__viz_load_times
+          description: "Raw viz_load_times data from Tableau Cloud Admin Insights"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+

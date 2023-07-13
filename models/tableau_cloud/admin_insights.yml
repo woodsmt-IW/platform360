@@ -1,0 +1,321 @@
+version: 2
+
+models:
+  - name: tableau_cloud__admin_insights__groups
+    description: "Daily user group snapshots from Tableau Cloud"
+
+    columns:
+      - name: client
+        description: Client ID in Bubble
+        tests:
+          - not_null
+
+      - name: site
+        description: Tableau Cloud site ID
+        tests:
+          - not_null
+
+      - name: timestamp
+        description: Timestamp from the Admin Insights Snapshot
+        tests:
+          - not_null
+
+      - name: group_name
+        description: Name of the group
+        tests:
+          - not_null
+
+      - name: group_min_site_role
+        description: When users are added to this group, they are assigned this role unless they already have a higher role.
+
+      - name: group_assign_license_on_signin
+        description: When users in this group sign in, promote them to this role unless they already have a higher role.
+        tests:
+          - not_null
+
+      - name: is_current
+        description: Flag for quickly filtering to the latest group snapshot
+        tests:
+          - not_null
+        
+  - name: tableau_cloud__admin_insights__job_performance
+    description: "Historical jobs from Tableau Cloud"
+
+    columns:
+      - name: client
+        description: Client ID in Bubble
+        tests:
+          - not_null
+          
+      - name: site
+        description: Tableau Cloud site slug
+        tests:
+          - not_null
+          
+      - name: _load_time
+        description: Timestamp the data was pulled from Tableau Cloud and loaded into Snowflake
+        tests:
+          - not_null
+          
+      - name: job_key
+        description: Composite key to avoid duplicates during incremental refresh (<job_id>-<site>)
+        tests:
+          - not_null
+          - unique
+          
+      - name: completed_at
+          
+      - name: created_at
+          
+      - name: item_hyperlink
+          
+      - name: item_id
+          
+      - name: item_name
+          
+      - name: item_type
+          
+      - name: job_duration
+          
+      - name: job_execution_duration
+          
+      - name: job_id
+          
+      - name: job_overflow_queued_duration
+          
+      - name: job_queued_duration
+          
+      - name: job_result
+          
+      - name: job_type
+          
+      - name: manual_run
+          
+      - name: overflow_queued_at
+          
+      - name: owner_email
+          
+      - name: queued_at
+          
+      - name: schedule_luid
+          
+      - name: schedule_name
+          
+      - name: site_luid
+          
+      - name: site_name
+          
+      - name: started_at
+          
+      - name: was_overflow_queued
+
+  - name: tableau_cloud__admin_insights__site_content
+    description: "Site content from Tableau Cloud"
+
+    columns:
+      - name: client
+        description: Client ID in Bubble
+        tests:
+          - not_null
+          
+      - name: site
+        description: Tableau Cloud site slug
+        tests:
+          - not_null
+
+      - name: timestamp
+        description: Timestamp from the Admin Insights Snapshot
+        tests:
+          - not_null
+
+      - name: created_at
+      - name: last_access_date
+      - name: last_published_at
+      - name: updated_at
+      - name: item_hyperlink
+      - name: item_luid
+      - name: item_name
+      - name: item_type
+      - name: owner_email
+      - name: site_hyperlink
+      - name: site_luid
+      - name: site_name
+      - name: item_id
+      - name: project_level
+      - name: storage_quota_bytes
+      - name: data_source_content_type
+      - name: data_source_database_type
+      - name: data_source_is_certified
+      - name: description
+      - name: first_published_at
+      - name: has_incrementable_extract
+      - name: has_refresh_scheduled
+      - name: has_refreshable_extract
+      - name: is_data_extract
+      - name: extracts_incremented_at
+      - name: extracts_refreshed_at
+      - name: item_parent_project_id
+      - name: item_parent_project_level
+      - name: item_parent_project_name
+      - name: item_parent_project_owner_email
+      - name: item_revision
+      - name: size_bytes
+      - name: top_parent_project_name
+      - name: view_title
+      - name: view_type
+      - name: view_workbook_id
+      - name: view_workbook_name
+      - name: workbook_shows_sheets_as_tabs
+      - name: is_current
+
+  - name: tableau_cloud__admin_insights__ts_events
+    description: "Historical events from Tableau Cloud"
+
+    columns:
+      - name: client
+        description: Client ID in Bubble
+        tests:
+          - not_null
+          
+      - name: site
+        description: Tableau Cloud site slug
+        tests:
+          - not_null
+          
+      - name: _load_time
+        description: Timestamp the data was pulled from Tableau Cloud and loaded into Snowflake
+        tests:
+          - not_null
+          
+      - name: event_key
+        description: Composite key to avoid duplicates during incremental refresh (<event_id>-<site>)
+        tests:
+          - not_null
+          - unique
+          
+      - name: actor_license_role
+      - name: actor_site_role
+      - name: actor_user_id
+      - name: actor_user_name
+      - name: admin_insights_publish_timestamp
+      - name: event_date
+      - name: event_id
+      - name: event_is_failure
+      - name: event_name
+      - name: event_type
+      - name: historical_item_name
+      - name: historical_item_repository_url
+      - name: item_id
+      - name: item_name
+      - name: item_owner_email
+      - name: item_owner_friendly_name
+      - name: item_owner_id
+      - name: item_owner_name
+      - name: item_project_name
+      - name: item_repository_url
+      - name: item_type
+      - name: podname
+      - name: project_name
+      - name: schedule_name
+      - name: site_luid
+      - name: site_name
+      - name: workbook_name
+
+models:
+  - name: tableau_cloud__admin_insights__ts_users
+    description: "Daily user account snapshots from Tableau Cloud"
+
+    columns:
+      - name: client
+        description: Client ID in Bubble
+        tests:
+          - not_null
+
+      - name: site
+        description: Tableau Cloud site ID
+        tests:
+          - not_null
+
+      - name: timestamp
+        description: Timestamp from the Admin Insights Snapshot
+        tests:
+          - not_null
+
+      - name: access_data_source_events_count
+      - name: access_view_events
+      - name: created_at
+      - name: data_source_access_count_total
+      - name: data_source_access_count_unique_users
+      - name: days_since_last_login
+      - name: last_datasource_access_date
+      - name: last_datasource_publish_date
+      - name: last_login_date
+      - name: last_view_access_date
+      - name: last_workbook_publish_date
+      - name: owned_certified_data_sources
+      - name: owned_data_sources
+      - name: owned_data_sources_size
+      - name: owned_projects
+      - name: owned_views
+      - name: owned_workbooks
+      - name: owned_workbooks_size
+      - name: podname
+      - name: publish_data_source_events
+      - name: publish_workbook_events
+      - name: site_create_date
+      - name: site_creator_capacity
+      - name: site_explorer_capacity
+      - name: site_luid
+      - name: site_name
+      - name: site_role
+      - name: site_user_quota
+      - name: site_viewer_capacity
+      - name: user_account_age
+      - name: user_email
+      - name: user_id
+      - name: user_luid
+      - name: view_access_count_total
+      - name: view_access_count_unique_users
+
+  - name: tableau_cloud__admin_insights__viz_load_times
+    description: "Request load time performance from Tableau Cloud"
+
+    columns:
+      - name: client
+        description: Client ID in Bubble
+        tests:
+          - not_null
+          
+      - name: site
+        description: Tableau Cloud site slug
+        tests:
+          - not_null
+          
+      - name: _load_time
+        description: Timestamp the data was pulled from Tableau Cloud and loaded into Snowflake
+        tests:
+          - not_null
+          
+      - name: request_key
+        description: Composite key to avoid duplicates during incremental refresh (<request_id>-<site>)
+        tests:
+          - not_null
+          - unique
+
+      - name: duration
+      - name: http_request_uri
+      - name: http_user_agent
+      - name: item_hyperlink
+      - name: item_luid
+      - name: item_name
+      - name: item_owner_email
+      - name: item_repository_url
+      - name: item_type
+      - name: project_name
+      - name: project_owner_user_name
+      - name: request_id
+      - name: request_time
+      - name: site_luid
+      - name: status_code
+      - name: workbook_name
+      - name: workbook_owner_user_name

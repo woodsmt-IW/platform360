@@ -1,0 +1,150 @@
+
+version: 2
+
+sources:
+    - name: raw
+      tables:
+        - name: sysperf__windows_perfmon
+          description: "Raw perfmon data from S3"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: sysperf__windows_perfmon_legacy
+          description: "Raw legacy (cc-based) Windows Perfmon data from S3"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: sysperf__linux_stats
+          description: "Raw linux stats data from S3"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+
+        - name: sysperf__linux_stats_legacy
+          description: "Raw legacy (cc-based) linux stats data from S3"
+          columns:
+            - name: record_id
+              description: "The primary key for this table"
+              tests:
+                  - unique
+                  - not_null
+            - name: raw_json
+              description: "The data, in JSON format"
+            - name: _load_time
+              description: "The datetime the file was ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_name
+              description: "The file ingested from S3"
+              tests:
+                  - not_null
+            - name: _file_row_number
+              description: "The row number for this record in the ingested file"
+              tests:
+                  - not_null
+    - name: mart_prod
+      tables:
+        - name: legacy_p360_project_mapping
+          description: "Mapping table between legacy cc ids and new client and resource numbers"
+          columns:
+            - name: cc_key
+              description: "The legacy cc code"
+              tests:
+                  - unique
+                  - not_null
+
+            - name: bubble_clientid
+              description: "The new client_id"
+              tests:
+                  - not_null
+
+            - name: bubble_clientnum
+              description: "The new client_id integer"
+              tests:
+                  - not_null
+
+            - name: resourceid
+              description: "The new resource_id"
+              tests:
+                  - not_null
+
+            - name: resourcenum
+              description: "The new resource_id integer"
+              tests:
+                  - not_null
+
+            - name: os_type
+              description: "Windows or Linux"
+              tests:
+                  - not_null
+        - name: legacy_cc_mapping
+          description: "Mapping table between legacy cc ids and new client and resource numbers"
+          columns:
+            - name: cc_key
+              description: "The legacy cc code"
+              tests:
+                  - unique
+                  - not_null
+
+            - name: bubble_clientid
+              description: "The new client_id"
+              tests:
+                  - not_null
+
+            - name: bubble_resourceid
+              description: "The new resource_id"
+              tests:
+                  - not_null

@@ -1,0 +1,177 @@
+version: 2
+
+models:
+  - name: sysperf__linux_stats_legacy
+    description: "Sysperf setup from the legacy P360 system with cc id's"
+
+    columns:
+      - name: record_id
+        description: The raw record id - not unique - before flattening
+        tests:
+          - not_null
+
+      - name: cc
+        description: The client code project identifier from the legacy P360 system
+        tests:
+          - not_null
+
+      - name: hostname
+        description: The hostname of the reporting computer
+        tests:
+          - not_null
+
+      - name: timestamp
+        description: UTC timestamp of the data
+        tests:
+          - not_null
+
+      - name: L1
+        description: Top level category of data
+        tests:
+          - not_null
+
+      - name: L2
+        description: 2nd level category of data
+
+      - name: L3
+        description: 3rd level category of data
+
+      - name: L4
+        description: 4th level category of data
+
+      - name: val
+        description: The reported stat value
+        
+  - name: sysperf__linux_stats
+    description: "Sysperf setup from the new P360 system with client and resource ids"
+
+    columns:
+      - name: record_id
+        description: The raw record id - not unique - before flattening
+        tests:
+          - not_null
+
+      - name: client
+        description: The client id
+        tests:
+          - not_null
+
+      - name: resource
+        description: The resource id
+        tests:
+          - not_null
+
+      - name: hostname
+        description: The hostname of the reporting computer
+        tests:
+          - not_null
+
+      - name: timestamp
+        description: UTC timestamp of the data
+        tests:
+          - not_null
+
+      - name: L1
+        description: Top level category of data
+        tests:
+          - not_null
+
+      - name: L2
+        description: 2nd level category of data
+
+      - name: L3
+        description: 3rd level category of data
+
+      - name: L4
+        description: 4th level category of data
+
+      - name: val
+        description: The reported stat value
+
+  - name: sysperf__windows_perfmon_legacy
+    description: "Sysperf setup from the legacy P360 system with cc id's"
+
+    columns:
+      - name: record_id
+        description: The raw record id - not unique - before flattening
+        tests:
+          - not_null
+
+      - name: cc
+        description: The client code project identifier from the legacy P360 system
+        tests:
+          - not_null
+
+      - name: hostname
+        description: The hostname of the reporting computer
+        tests:
+          - not_null
+
+      - name: timestamp
+        description: UTC timestamp of the data
+        tests:
+          - not_null
+
+      - name: L1
+        description: Top level category of data
+        tests:
+          - not_null
+
+      - name: L2
+        description: 2nd level category of data
+
+      - name: L3
+        description: 3rd level category of data
+
+      - name: L4
+        description: 4th level category of data
+
+      - name: val
+        description: The reported stat value
+        
+  - name: sysperf__windows_perfmon
+    description: "Sysperf setup from the new P360 system with client and resource ids"
+
+    columns:
+      - name: record_id
+        description: The raw record id - not unique - before flattening
+        tests:
+          - not_null
+
+      - name: client
+        description: The client id
+        tests:
+          - not_null
+
+      - name: resource
+        description: The resource id
+        tests:
+          - not_null
+
+      - name: hostname
+        description: The hostname of the reporting computer
+        tests:
+          - not_null
+
+      - name: timestamp
+        description: UTC timestamp of the data
+        tests:
+          - not_null
+
+      - name: L1
+        description: Top level category of data
+        tests:
+          - not_null
+
+      - name: L2
+        description: 2nd level category of data
+
+      - name: L3
+        description: 3rd level category of data
+
+      - name: L4
+        description: 4th level category of data
+
+      - name: val
+        description: The reported stat value
+        
